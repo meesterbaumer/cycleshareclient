@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 
 export const StateContext = React.createContext()
 
@@ -6,7 +6,11 @@ export const StateProvider = (props) => {
     const [states, setStates] = useState([])
 
     const getStates = () => {
-        return fetch("http://localhost:8088/states")
+        return fetch("http://localhost:8000/states", {
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("CS_token")}`
+            }
+        })
         .then(res => res.json())
         .then(setStates)
     }

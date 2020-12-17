@@ -1,8 +1,12 @@
-import React from "react"
+import React, { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { StateContext } from "../state/StateProvider"
 import "./Auth.css"
 
 export const Register = (props) => {
+
+    const { states, getStates } = useContext(StateContext)
+
     const firstName = React.createRef()
     const lastName = React.createRef()
     const email = React.createRef()
@@ -12,6 +16,10 @@ export const Register = (props) => {
     const address = React.createRef()
     const city = React.createRef()
     const state = React.createRef()
+
+    useEffect(() => {
+        getStates()
+    }, [])
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -88,6 +96,19 @@ export const Register = (props) => {
                 </fieldset>
                 <fieldset>
                     <label htmlFor="state"> State </label>
+                    <select
+                    ref={state}
+                    name="state"
+                    className="form-control"
+                    required
+                    >
+                        <option value="0">Choose a state</option>
+                        {states.map((s) => (
+                            <option key={s.id} value={s.id}>
+                                {s.name}
+                            </option>
+                        ))}
+                    </select>
                     <textarea ref={state} name="state" className="form-control" placeholder="TN" />
                 </fieldset>
                 <fieldset style={{
