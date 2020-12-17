@@ -1,11 +1,8 @@
-import React, { useContext, useEffect } from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
-import { StateContext } from "../state/StateProvider"
 import "./Auth.css"
 
 export const Register = (props) => {
-
-    const { states, getStates } = useContext(StateContext)
 
     const firstName = React.createRef()
     const lastName = React.createRef()
@@ -13,13 +10,6 @@ export const Register = (props) => {
     const password = React.createRef()
     const verifyPassword = React.createRef()
     const passwordDialog = React.createRef()
-    const address = React.createRef()
-    const city = React.createRef()
-    const state = React.createRef()
-
-    useEffect(() => {
-        getStates()
-    }, [])
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -31,9 +21,6 @@ export const Register = (props) => {
                 "last_name": lastName.current.value,
                 "email": email.current.value,
                 "password": password.current.value,
-                "address": address.current.value,
-                "city": city.current.value,
-                "state": state.current.value,
             }
 
             return fetch("http://127.0.0.1:8000/register", {
@@ -85,31 +72,6 @@ export const Register = (props) => {
                 <fieldset>
                     <label htmlFor="verifyPassword"> Verify Password </label>
                     <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="address"> Address </label>
-                    <textarea ref={address} name="address" className="form-control" placeholder="555 Cycle Street" />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="city"> City </label>
-                    <textarea ref={city} name="city" className="form-control" placeholder="Nashville" />
-                </fieldset>
-                <fieldset>
-                    <label htmlFor="state"> State </label>
-                    <select
-                    ref={state}
-                    name="state"
-                    className="form-control"
-                    required
-                    >
-                        <option value="0">Choose a state</option>
-                        {states.map((s) => (
-                            <option key={s.id} value={s.id}>
-                                {s.name}
-                            </option>
-                        ))}
-                    </select>
-                    <textarea ref={state} name="state" className="form-control" placeholder="TN" />
                 </fieldset>
                 <fieldset style={{
                     textAlign: "center"
