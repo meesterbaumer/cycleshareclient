@@ -35,7 +35,7 @@ export const Register = (props) => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("CS_token", res.token)
-                        props.history.push("/")
+                        props.history.push("/completeprofile")
                     }
                 })
         } else {

@@ -5,7 +5,6 @@ import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import "./cycle.css"
-import { StateProvider } from "./state/StateProvider"
 
 export const Cycle = () => (
     <>
@@ -21,8 +20,6 @@ export const Cycle = () => (
         }} />
 
         <Route path="/login" render={Login} />
-        <Route path="/register" render={(props) => <StateProvider>
-            <Register {...props}/>
-        </StateProvider> } />
+        <Route path="/register" render={Register} />
     </>
 )
