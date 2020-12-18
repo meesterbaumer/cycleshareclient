@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { StateContext } from "../state/StateProvider"
 
 export const CompleteProfile = (props) => {
     
     const { states, getStates } = useContext(StateContext)
-
+    const history = useHistory()
     const address = React.createRef()
     const city = React.createRef()
     const state = React.createRef()
@@ -33,7 +33,7 @@ export const CompleteProfile = (props) => {
             body: JSON.stringify(updateUser)
         })
             .then(res => res.json())
-            .then(props.history.push("/"))
+            .then(history.push("/"))
     }
 
     return (
