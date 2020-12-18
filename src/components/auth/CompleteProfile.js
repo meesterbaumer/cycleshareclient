@@ -23,7 +23,7 @@ export const CompleteProfile = (props) => {
             "state": state.current.value,
         }
 
-        return fetch("http://127.0.0.1:8000/completeprofile", {
+        return fetch("http://127.0.0.1:8000/riders", {
             method: "POST",
             headers: {
                 "Authorization": `Token ${localStorage.getItem("CS_token")}`,
