@@ -17,7 +17,6 @@ export const ApplicationViews = (props) => {
                         <CompleteProfile />
                     </Route>
                 </StateProvider>
-
             
         </>
     )
