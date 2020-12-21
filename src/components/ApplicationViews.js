@@ -2,9 +2,9 @@ import React from "react"
 import { Route } from "react-router-dom"
 import { CompleteProfile } from "./auth/CompleteProfile"
 import { BikeList } from "./bike/BikeList"
-import { BikeProvider } from "./bike/bikeprovider"
-import { BikeSizeProvider } from "./bike/bikesizeprovider"
-import { BikeTypeProvider } from "./bike/biketypeprovider"
+import { BikeProvider } from "./bike/BikeProvider"
+import { BikeSizeProvider } from "./bike/BikeSizeProvider"
+import { BikeTypeProvider } from "./bike/BikeTypeProvider"
 import { StateProvider } from "./state/StateProvider"
 
 export const ApplicationViews = (props) => {
@@ -17,6 +17,9 @@ export const ApplicationViews = (props) => {
                         <BikeSizeProvider>
                             <StateProvider>
                                 <Route exact path="/">
+                                    
+                                </Route>
+                                <Route exact path="/bikes">
                                     <BikeList />
                                 </Route>
                                 <Route path="/completeprofile">

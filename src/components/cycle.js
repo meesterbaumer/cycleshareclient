@@ -12,6 +12,7 @@ export const Cycle = () => (
             if (localStorage.getItem("CS_token")) {
                 return <>
                     <Route render={NavBar} />
+                    <h1 className='CSLogo'>CyCleShare</h1>
                     <Route render={props => <ApplicationViews {...props} />} />
                 </>
             } else {

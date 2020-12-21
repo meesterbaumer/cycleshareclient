@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { BikeContext } from "./bikeprovider"
+import { BikeContext } from "./BikeProvider"
 import { Bike } from "./Bike"
 import "./Bike.css"
 
@@ -17,7 +17,7 @@ export const BikeList = () => {
     }, [])
 
     return (
-        <div className="locations">
+        <div className="bikes">
         {
             bikes.map(bik => <Bike key={bik.id} bike={bik} />)
         }
