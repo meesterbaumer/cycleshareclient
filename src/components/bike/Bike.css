@@ -1,5 +1,6 @@
 .individualBike {
     border: 2px solid black;
+    border-radius: 20px;
     background-color: black;
     color: white;
     width: fit-content;
@@ -9,5 +10,16 @@
 }
 .bikes {
     display: flex;
+    justify-content: center;
     flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.bike__image {
+    height: 10rem;
+}
+
+.searchedCity {
+    margin-top: 7rem;
+    text-align: center;
 }

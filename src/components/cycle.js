@@ -13,6 +13,7 @@ export const Cycle = () => (
                 return <>
                     <Route render={NavBar} />
                     <h1 className='CSLogo'>CyCleShare</h1>
+                    <h3 className="greeting">Hello *username*, Welcome to CyCleShare</h3>
                     <Route render={props => <ApplicationViews {...props} />} />
                 </>
             } else {
