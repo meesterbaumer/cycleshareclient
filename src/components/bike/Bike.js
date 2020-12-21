@@ -1,9 +1,9 @@
 import React from "react"
 import "./Bike.css"
 
-export const Bike = () => (
-    <section className="bike">
-        <h3 className="bike">Bike 1</h3>
-        <div className="bike__brand">Brand: Trek</div>
+export const Bike = ({ bike }) => (
+    <section className="location">
+        <h3 className="location__name">{bike.make}</h3>
+        <address className="location__address">{bike.model}</address>
     </section>
 )
