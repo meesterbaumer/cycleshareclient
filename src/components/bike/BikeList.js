@@ -19,7 +19,7 @@ export const BikeList = (city) => {
 
     return (
         <div>
-            <form>
+            <form className='searchForm'>
                 <fieldset>
                     <input 
                     name="search"
