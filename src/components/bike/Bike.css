@@ -24,6 +24,31 @@
     text-align: center;
 }
 
+.form-cont {
+    display: flex;
+    flex-direction: column;
+}
+
 .searchForm {
+    background-color: black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    align-self: center;
+    align-items: center;
+    width: 30%;
+
+}
+
+.statePicker {
+    width: 15rem;
+}
+
+.cityBox {
+    width: 15rem;
+}
+
+.rideButton {
+    margin-bottom: 1rem;
 }
