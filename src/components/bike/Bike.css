@@ -1,0 +1,59 @@
+.individualBike {
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    width: fit-content;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+.bikes {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.bike__image {
+    height: 10rem;
+}
+
+.searchedCity {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.form-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchForm {
+    background-color: black;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    width: 30%;
+
+}
+
+.statePicker {
+    width: 15rem;
+}
+
+.cityBox {
+    width: 15rem;
+}
+
+.rideButton {
+    margin-bottom: 1rem;
+}
+
+.whereTo {
+    text-align: center;
+    margin-bottom: 1rem;
+}
