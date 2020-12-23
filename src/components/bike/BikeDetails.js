@@ -1,30 +1,42 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { BikeContext } from "./BikeProvider"
-import { Bike } from "./Bike"
-import "./Bike.css"
+import "./BikeDetail.css"
 
-export const BikeList = (city) => {
+export const BikeDetailsList = (props) => {
     // This state changes when `getLocations()` is invoked below
-    const { bikes, getBikes } = useContext(BikeContext)
-    const filteredBikes = bikes.filter(bike => bike.rider.city === city)
+    const { bikes, getBikes, getSingleBike } = useContext(BikeContext)
+
+
+    const [bike, setBike] = useState({biketype:"", bikesize:"", image:""})
 
     useEffect(() => {
-        getBikes()
+        getSingleBike(props.match.params.bikeId)
+        .then(r => setBike(r))
     }, [])
-
 
 
     return (
         <>
-            <div className='whereTo'>Where are you heading today?</div>
-            <div className="form-cont">
-            <h3 className='searchedCity'>Bikes Available in *SearchedCity*</h3>
-            <div className="bikes">
-                {
-                    bikes.map(bik => <Bike key={bik.id} bike={bik} />)
-                }
+            <div className="detailContainer">
+                <div className="firstThird bikeHeading">{bike.year} {bike.model}</div>
+                <div className="secondThird">
+                    <div className="bikeDeets">
+                        <div>
+                            <div>Type: {bike.biketype.label}</div>
+                            <div>Size: {bike.bikesize.label}</div>
+                            <div>Accepted Payments:</div>
+                        </div>
+                    </div>
+                    <div className="bikeImageCont">
+                        <div className="bikeImage">{bike.image}</div>
+                    </div>
+                </div>
+                <div className="thirdThird">
+                    <div>
+                        placeholder to load some recent reviews
+                    </div>
+                </div>
             </div>
-        </div>
         </>
     )
 }

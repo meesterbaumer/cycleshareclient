@@ -1,6 +1,7 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { CompleteProfile } from "./auth/CompleteProfile"
+import { BikeDetailsList } from "./bike/BikeDetails"
 import { BikeList } from "./bike/BikeList"
 import { BikeProvider } from "./bike/BikeProvider"
 import { BikeSizeProvider } from "./bike/BikeSizeProvider"
@@ -23,6 +24,9 @@ export const ApplicationViews = (props) => {
                                 <Route exact path="/bikes">
                                     <BikeList />
                                 </Route>
+                                <Route path="/bikes/:bikeId(\d+)" render={
+                                    props => <BikeDetailsList {...props} />
+                                } />
                                 <Route path="/completeprofile">
                                     <CompleteProfile />
                                 </Route>
