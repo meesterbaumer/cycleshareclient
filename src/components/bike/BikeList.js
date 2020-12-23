@@ -20,7 +20,9 @@ export const BikeList = (city) => {
 
 
     return (
-        <div className="form-cont">
+        <>
+            <div className='whereTo'>Where are you heading today?</div>
+            <div className="form-cont">
             <form className='searchForm'>
                 <fieldset>
                     <input 
@@ -55,5 +57,6 @@ export const BikeList = (city) => {
                 }
             </div>
         </div>
+        </>
     )
 }

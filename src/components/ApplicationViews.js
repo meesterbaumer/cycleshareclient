@@ -5,6 +5,7 @@ import { BikeList } from "./bike/BikeList"
 import { BikeProvider } from "./bike/BikeProvider"
 import { BikeSizeProvider } from "./bike/BikeSizeProvider"
 import { BikeTypeProvider } from "./bike/BikeTypeProvider"
+import { DashboardList } from "./dashboard/DashboardList"
 import { StateProvider } from "./state/StateProvider"
 
 export const ApplicationViews = (props) => {
@@ -17,7 +18,7 @@ export const ApplicationViews = (props) => {
                         <BikeSizeProvider>
                             <StateProvider>
                                 <Route exact path="/">
-                                    
+                                    <DashboardList />
                                 </Route>
                                 <Route exact path="/bikes">
                                     <BikeList />
