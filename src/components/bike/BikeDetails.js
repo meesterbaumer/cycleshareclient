@@ -1,18 +1,22 @@
 import React, { useContext, useEffect, useState } from "react"
 import { BikeContext } from "./BikeProvider"
+import { PaymentContext } from "../payments/PaymentProvider"
 import "./BikeDetail.css"
 
 export const BikeDetailsList = (props) => {
     // This state changes when `getLocations()` is invoked below
-    const { bikes, getBikes, getSingleBike } = useContext(BikeContext)
-
+    const { getSingleBike } = useContext(BikeContext)
+    // const { payments, getPayments } = useContext(PaymentContext)
 
     const [bike, setBike] = useState({biketype:"", bikesize:"", image:""})
-
+    
     useEffect(() => {
+        // getPayments()
         getSingleBike(props.match.params.bikeId)
         .then(r => setBike(r))
     }, [])
+    
+    
 
 
     return (
@@ -24,7 +28,7 @@ export const BikeDetailsList = (props) => {
                         <div>
                             <div>Type: {bike.biketype.label}</div>
                             <div>Size: {bike.bikesize.label}</div>
-                            <div>Accepted Payments:</div>
+                            {/* <div>Accepted Payments: {payments.map(p => p.payment.name)}</div> */}
                         </div>
                     </div>
                     <div className="bikeImageCont">
