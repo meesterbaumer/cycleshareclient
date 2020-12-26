@@ -1,6 +1,7 @@
 .detailContainer {
     margin: auto;
     margin-top: 3rem;
+    border-radius: 20px;
     background-color: black;
     width: 75%;
     height: 300px;
@@ -12,9 +13,23 @@
     font-size: 2.5rem;
     padding-top: 1rem;
 }
+
 .secondThird {
     display: flex;
     justify-content: center;
+    padding: 10px;
+}
+
+.bikeDeets {
+    padding: 10px;
+    width: 25%;
+}
+
+.bikeImageCont {
+    padding: 10px;
+    background-color: white;
+    color: black;
+    width: 65%;
 }
 
 .thirdThird {
