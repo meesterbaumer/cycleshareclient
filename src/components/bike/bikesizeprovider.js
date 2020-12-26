@@ -15,6 +15,7 @@ export const BikeSizeProvider = (props) => {
         .then(setBikeSizes)
     }
 
+
     // const addBikes = (bike) => {
     //     return fetch("http://localhost:8000/bikes", {
     //       method: "POST",

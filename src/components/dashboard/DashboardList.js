@@ -1,4 +1,5 @@
 import React from "react"
+import { RiderContext } from "../rider/RiderProvider"
 import "./Dashboard.css"
 
 export const DashboardList = () => {
