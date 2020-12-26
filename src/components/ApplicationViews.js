@@ -9,6 +9,7 @@ import { BikeTypeProvider } from "./bike/BikeTypeProvider"
 import { PaymentProvider } from "./payments/PaymentProvider"
 import { DashboardList } from "./dashboard/DashboardList"
 import { StateProvider } from "./state/StateProvider"
+import { MyBikeProvider } from "./bike/MyBikesProvider"
 
 export const ApplicationViews = (props) => {
     return (
@@ -20,18 +21,20 @@ export const ApplicationViews = (props) => {
                         <BikeSizeProvider>
                             <StateProvider>
                                 <PaymentProvider>
-                                    <Route exact path="/">
-                                        <DashboardList />
-                                    </Route>
-                                    <Route exact path="/bikes">
-                                        <BikeList />
-                                    </Route>
-                                    <Route path="/bikes/:bikeId(\d+)" render={
-                                        props => <BikeDetailsList {...props} />
-                                    } />
-                                    <Route path="/completeprofile">
-                                        <CompleteProfile />
-                                    </Route>
+                                    <MyBikeProvider>
+                                        <Route exact path="/">
+                                            <DashboardList />
+                                        </Route>
+                                        <Route exact path="/bikes">
+                                            <BikeList />
+                                        </Route>
+                                        <Route path="/bikes/:bikeId(\d+)" render={
+                                            props => <BikeDetailsList {...props} />
+                                        } />
+                                        <Route path="/completeprofile">
+                                            <CompleteProfile />
+                                        </Route>
+                                    </MyBikeProvider>
                                 </PaymentProvider>
                             </StateProvider>
                         </BikeSizeProvider>
