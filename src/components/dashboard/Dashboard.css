@@ -1,3 +1,30 @@
 .greeting {
     text-align: center;
 }
+
+.upcomingRides {
+    margin: auto;
+    color: white;
+    margin-top: 20px;
+    background-color: black;
+    width: 1000px;
+    height: 200px;
+}
+
+.myGarage {
+    margin: auto;
+    color: white;
+    margin-top: 20px;
+    background-color: black;
+    width: 1000px;
+    height: 200px;
+}
+
+.myReviews {
+    margin: auto;
+    color: white;
+    margin-top: 20px;
+    background-color: black;
+    width: 1000px;
+    height: 200px;
+}

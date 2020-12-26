@@ -29,7 +29,7 @@ export const BikeDetailsList = (props) => {
                             <div>Type: {bike.biketype.label}</div>
                             <div>Size: {bike.bikesize.label}</div>
                             <div>Accepted Payments: </div>
-                            <div>{payments.map(p => p.payment.name)}</div>
+                            <ul>{payments.map(p => <li>{p.payment.name}</li>)}</ul>
                         </div>
                     </div>
                     <div className="bikeImageCont">

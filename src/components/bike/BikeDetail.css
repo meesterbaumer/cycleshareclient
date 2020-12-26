@@ -4,7 +4,7 @@
     border-radius: 20px;
     background-color: black;
     width: 75%;
-    height: 300px;
+    height: fit-content;
     color:white;
     text-align: center;
 }
@@ -30,6 +30,7 @@
     background-color: white;
     color: black;
     width: 65%;
+    height: 300px;
 }
 
 .thirdThird {
