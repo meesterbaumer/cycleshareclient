@@ -15,6 +15,15 @@ export const BikeProvider = (props) => {
         .then(setBikes)
     }
 
+    const getSingleBike = (bikeId) => {
+        return fetch(`http://localhost:8000/bikes/${bikeId}`, {
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("CS_token")}`
+            }
+        })
+        .then(res => res.json())
+    }
+
     const addBikes = (bike) => {
         return fetch("http://localhost:8000/bikes", {
           method: "POST",
@@ -49,7 +58,7 @@ export const BikeProvider = (props) => {
 
     return (
         <BikeContext.Provider value={{
-            bikes, getBikes, addBikes, editBikes, deleteBikes
+            bikes, getBikes, addBikes, editBikes, deleteBikes, getSingleBike
         }}>
             {props.children}
         </BikeContext.Provider>

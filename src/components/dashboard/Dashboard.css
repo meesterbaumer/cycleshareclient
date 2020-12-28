@@ -1,3 +1,36 @@
 .greeting {
     text-align: center;
 }
+
+.upcomingRides {
+    margin: auto;
+    color: black;
+    margin-top: 20px;
+    background-color: lightgray;
+    width: auto;
+    height: 200px;
+}
+
+.myGarage {
+    margin: auto;
+    color: black;
+    margin-top: 20px;
+    background-color: lightgray;
+    border: 5px solid black;
+    border-radius: 1rem;
+    width: auto;
+    height: auto;
+}
+
+.myReviews {
+    margin: auto;
+    color: black;
+    margin-top: 20px;
+    background-color: lightgray;
+    width: auto;
+    height: 200px;
+}
+.addBikeButton {
+    margin-left: 20px;
+    margin-top: 20px;
+}
