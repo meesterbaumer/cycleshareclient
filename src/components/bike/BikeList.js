@@ -4,14 +4,12 @@ import { Bike } from "./Bike"
 import "./Bike.css"
 
 export const BikeList = () => {
-    // This state changes when `getLocations()` is invoked below
+
     const { bikes, getBikes } = useContext(BikeContext)
 
     useEffect(() => {
         getBikes()
     }, [])
-
-
 
     return (
         <>

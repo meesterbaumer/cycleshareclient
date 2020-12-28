@@ -8,6 +8,7 @@ export const BikeDetailsList = (props) => {
     const { payments, getPayments } = useContext(PaymentContext)
 
     const [bike, setBike] = useState({biketype:"", bikesize:"", image:""})
+    const costTrue = bike.fee
 
     useEffect(() => {
         getPayments()
@@ -28,8 +29,8 @@ export const BikeDetailsList = (props) => {
                         <div>
                             <div>Type: {bike.biketype.label}</div>
                             <div>Size: {bike.bikesize.label}</div>
-                            <div>Accepted Payments: </div>
-                            <ul>{payments.map(p => <li>{p.payment.name}</li>)}</ul>
+                            <div>Rental fee: {costTrue ? "This bike can be rented for 5$ per hour.  See below for payment options:" : "Great news!  This bike is being offered for free!"}</div>
+                            <div>{costTrue ? (<div><ul>{payments.map(p => <li>{p.payment.name}</li>)}</ul></div>): ""}</div>
                         </div>
                     </div>
                     <div className="bikeImageCont">

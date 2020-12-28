@@ -15,7 +15,7 @@ export const MyBikesList = () => {
         <>
             <div className="bikes">
                 {
-                    // myBikes.map(bik => <MyBike key={bik.id} bike={bik} />)
+                    myBikes.map(bik => <MyBike key={bik.id} bike={bik} />)
                 }
             </div>
         </>
