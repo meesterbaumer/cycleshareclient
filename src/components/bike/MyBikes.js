@@ -5,7 +5,7 @@ import "./Bike.css"
 
 export const MyBikesList = () => {
 
-    const {myBikes, getMyBikes } = useContext(MyBikeContext)
+    const {mybikes, getMyBikes } = useContext(MyBikeContext)
 
     useEffect(() => {
         getMyBikes()
@@ -13,9 +13,9 @@ export const MyBikesList = () => {
 
     return (
         <>
-            <div className="bikes">
+            <div className="mybikes">
                 {
-                    myBikes.map(bik => <MyBike key={bik.id} bike={bik} />)
+                    mybikes.map(bik => <MyBike key={bik.id} bike={bik} />)
                 }
             </div>
         </>

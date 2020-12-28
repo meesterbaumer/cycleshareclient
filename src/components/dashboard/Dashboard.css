@@ -4,27 +4,33 @@
 
 .upcomingRides {
     margin: auto;
-    color: white;
+    color: black;
     margin-top: 20px;
-    background-color: black;
-    width: 1000px;
+    background-color: lightgray;
+    width: auto;
     height: 200px;
 }
 
 .myGarage {
     margin: auto;
-    color: white;
+    color: black;
     margin-top: 20px;
-    background-color: black;
-    width: 1000px;
-    height: 200px;
+    background-color: lightgray;
+    border: 5px solid black;
+    border-radius: 1rem;
+    width: auto;
+    height: auto;
 }
 
 .myReviews {
     margin: auto;
-    color: white;
+    color: black;
     margin-top: 20px;
-    background-color: black;
-    width: 1000px;
+    background-color: lightgray;
+    width: auto;
     height: 200px;
+}
+.addBikeButton {
+    margin-left: 20px;
+    margin-top: 20px;
 }

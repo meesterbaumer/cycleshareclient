@@ -15,6 +15,12 @@
     flex-wrap: wrap;
 }
 
+.mybikes {
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+}
+
 .bike__image {
     height: 10rem;
 }

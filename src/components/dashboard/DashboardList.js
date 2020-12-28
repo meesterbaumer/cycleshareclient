@@ -12,6 +12,7 @@ export const DashboardList = () => {
             <SearchForm />
             <div className='upcomingRides'>Upcoming Rides</div>
             <div className='myGarage'>Garage
+            <button className='addBikeButton'>Add a Bike</button>
                 <MyBikesList />
             </div>
             <div className='myReviews'>Reviews</div>
