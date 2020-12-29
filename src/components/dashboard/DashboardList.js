@@ -1,10 +1,13 @@
-import React, { useRef } from "react"
+import React, { useContext, useEffect, useRef } from "react"
 import { RiderContext } from "../rider/RiderProvider"
+import { BikeTypeContext } from "../bike/BikeTypeProvider"
 import { SearchForm } from "../dashboard/SearchForm"
 import "./Dashboard.css"
 import { MyBikesList } from "../bike/MyBikes"
 
 export const DashboardList = () => {
+
+    const { bikeTypes, getBikeTypes } = useContext(BikeTypeContext)
 
     const addBikeDialog = useRef()
     const year = useRef()
@@ -13,6 +16,10 @@ export const DashboardList = () => {
     const type = useRef()
 
     const addBikeClicked = () => addBikeDialog.current.showModal()
+
+    useEffect(() => {
+        getBikeTypes()
+    }, [])
 
     return (
         <>
@@ -66,13 +73,20 @@ export const DashboardList = () => {
                     </fieldset>
                     <fieldset>
                         <label>Type</label>
-                        <input
+                        <select
                             ref={type}
-                            type="type"
+                            type="select"
                             name="type"
                             className="form-control"
                             required
-                        />
+                            >
+                            <option value="0">Select from the categories below</option>
+                            {bikeTypes.map((b) => (
+                                <option key={b.id} value={b.id}>
+                                {b.label}
+                                </option>
+                            ))}
+                            </select>
                     </fieldset>
                     
                 </form>
@@ -80,3 +94,4 @@ export const DashboardList = () => {
         </>
     )
 }
+
