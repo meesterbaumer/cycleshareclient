@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react"
 import { RiderContext } from "../rider/RiderProvider"
 import { BikeTypeContext } from "../bike/BikeTypeProvider"
+import { BikeSizeContext } from "../bike/bikesizeprovider"
 import { SearchForm } from "../dashboard/SearchForm"
 import "./Dashboard.css"
 import { MyBikesList } from "../bike/MyBikes"
@@ -8,17 +9,20 @@ import { MyBikesList } from "../bike/MyBikes"
 export const DashboardList = () => {
 
     const { bikeTypes, getBikeTypes } = useContext(BikeTypeContext)
+    const { bikeSizes, getBikeSizes } = useContext(BikeSizeContext)
 
     const addBikeDialog = useRef()
     const year = useRef()
     const make = useRef()
     const model = useRef()
     const type = useRef()
+    const size = useRef()
 
     const addBikeClicked = () => addBikeDialog.current.showModal()
 
     useEffect(() => {
         getBikeTypes()
+        getBikeSizes()
     }, [])
 
     return (
@@ -80,15 +84,31 @@ export const DashboardList = () => {
                             className="form-control"
                             required
                             >
-                            <option value="0">Select from the categories below</option>
-                            {bikeTypes.map((b) => (
-                                <option key={b.id} value={b.id}>
-                                {b.label}
-                                </option>
-                            ))}
-                            </select>
+                                <option value="0">Select from the categories below</option>
+                                {bikeTypes.map((b) => (
+                                    <option key={b.id} value={b.id}>
+                                    {b.label}
+                                    </option>
+                                ))}
+                        </select>
                     </fieldset>
-                    
+                    <fieldset>
+                        <label>Size</label>
+                        <select
+                            ref={size}
+                            type="select"
+                            name="size"
+                            className="form-control"
+                            required
+                            >
+                                <option value="0">Select from the sizes below</option>
+                                {bikeSizes.map((b) => (
+                                    <option key={b.id} value={b.id}>
+                                    {b.label}
+                                    </option>
+                                ))}
+                        </select>
+                    </fieldset>
                 </form>
             </dialog>
         </>
