@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { BikeContext } from "./BikeProvider"
+import { BikeContext } from "./bikeprovider"
 import { Bike } from "./Bike"
 import "./Bike.css"
 

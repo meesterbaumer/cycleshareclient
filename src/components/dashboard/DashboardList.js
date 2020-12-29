@@ -10,6 +10,7 @@ export const DashboardList = () => {
     const year = useRef()
     const make = useRef()
     const model = useRef()
+    const type = useRef()
 
     const addBikeClicked = () => addBikeDialog.current.showModal()
 
@@ -25,15 +26,16 @@ export const DashboardList = () => {
             </div>
             <div className='myReviews'>Reviews</div>
 
-            {/* Dialog for adding a bike to your garage */}
+            {/* POP UP Dialog for adding a bike to your garage */}
             <dialog className="addBikeDialog" ref={addBikeDialog}>
                 <div>Enter Your Bike's Details</div>
                 <form>
                     <fieldset>
-                        <label>Year</label>
+                        <label for="year">Year:</label>
                         <input
                             ref={year}
                             type="number"
+                            id="year"
                             name="year"
                             className="form-control"
                             placeholder="2020"
@@ -41,7 +43,7 @@ export const DashboardList = () => {
                         />
                     </fieldset>
                     <fieldset>
-                        <label>Make</label>
+                        <label>Make:</label>
                         <input
                             ref={make}
                             type="text"
@@ -59,6 +61,16 @@ export const DashboardList = () => {
                             name="model"
                             className="form-control"
                             placeholder="Madone"
+                            required
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <label>Type</label>
+                        <input
+                            ref={type}
+                            type="type"
+                            name="type"
+                            className="form-control"
                             required
                         />
                     </fieldset>
