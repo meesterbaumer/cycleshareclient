@@ -34,3 +34,8 @@
     margin-left: 20px;
     margin-top: 20px;
 }
+
+.addBikeDialog {
+    width: 250px;
+    background-color: lightgrey;
+}

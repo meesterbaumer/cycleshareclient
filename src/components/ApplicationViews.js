@@ -3,8 +3,8 @@ import { Route } from "react-router-dom"
 import { CompleteProfile } from "./auth/CompleteProfile"
 import { BikeDetailsList } from "./bike/BikeDetails"
 import { BikeList } from "./bike/BikeList"
-import { BikeProvider } from "./bike/BikeProvider"
-import { BikeSizeProvider } from "./bike/BikeSizeProvider"
+import { BikeProvider } from "./bike/bikeprovider"
+import { BikeSizeProvider } from "./bike/bikesizeprovider"
 import { BikeTypeProvider } from "./bike/BikeTypeProvider"
 import { PaymentProvider } from "./payments/PaymentProvider"
 import { DashboardList } from "./dashboard/DashboardList"
@@ -22,9 +22,10 @@ export const ApplicationViews = (props) => {
                             <StateProvider>
                                 <PaymentProvider>
                                     <MyBikeProvider>
-                                        <Route exact path="/">
-                                            <DashboardList />
-                                        </Route>
+                                        <Route 
+                                        exact path="/"
+                                        render={(props) => <DashboardList {...props} />}
+                                        />
                                         <Route exact path="/bikes">
                                             <BikeList />
                                         </Route>
