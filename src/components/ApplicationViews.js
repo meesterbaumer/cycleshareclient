@@ -22,9 +22,10 @@ export const ApplicationViews = (props) => {
                             <StateProvider>
                                 <PaymentProvider>
                                     <MyBikeProvider>
-                                        <Route exact path="/">
-                                            <DashboardList />
-                                        </Route>
+                                        <Route 
+                                        exact path="/"
+                                        render={(props) => <DashboardList {...props} />}
+                                        />
                                         <Route exact path="/bikes">
                                             <BikeList />
                                         </Route>

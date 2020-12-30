@@ -1,15 +1,35 @@
-import React, { useContext, useEffect, useRef } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import { RiderContext } from "../rider/RiderProvider"
+import { BikeContext } from "../bike/bikeprovider"
 import { BikeTypeContext } from "../bike/BikeTypeProvider"
 import { BikeSizeContext } from "../bike/bikesizeprovider"
 import { SearchForm } from "../dashboard/SearchForm"
 import "./Dashboard.css"
 import { MyBikesList } from "../bike/MyBikes"
 
-export const DashboardList = () => {
+export const DashboardList = (props) => {
 
     const { bikeTypes, getBikeTypes } = useContext(BikeTypeContext)
     const { bikeSizes, getBikeSizes } = useContext(BikeSizeContext)
+    const { bikes, getBikes, addBikes, editBikes, getSingleBike } = useContext(BikeContext)
+
+    const { bike, setBike } = useState({})
+
+    const editMode = props.match.params.hasOwnProperty("bikeId")
+
+    const handleControlledInputChange = (event) => {
+        const newBike = Object.assign({}, bike)
+        newBike[event.target.name] = event.target.value
+        setBike(newBike)
+    }
+
+    const getBikeInEditMode = () => {
+        if (editMode) {
+            const bikeId = parseInt(props.match.params.bikeId)
+            const selectedBike = bikes.find((b) => b.id === bikeId) || {}
+            setBike(selectedBike)
+        }
+    }
 
     const addBikeDialog = useRef()
     const year = useRef()
@@ -17,13 +37,45 @@ export const DashboardList = () => {
     const model = useRef()
     const type = useRef()
     const size = useRef()
+    const image = useRef()
+    const fee = useRef()
 
     const addBikeClicked = () => addBikeDialog.current.showModal()
 
     useEffect(() => {
+        getBikes()
         getBikeTypes()
         getBikeSizes()
     }, [])
+
+    useEffect(() => {
+        getBikeInEditMode()
+    }, [bikes])
+
+    const addoreditBikes = () => {
+        if (editMode) {
+            editBikes({
+                id: bike.id,
+                year : parseInt(year.current.value),
+                make : make.current.value,
+                model : model.current.value,
+                biketype : parseInt(type.current.value),
+                bikesize : parseInt(size.current.value),
+                image : image.current.value,
+                fee : fee.current.value
+            })
+        } else {
+            addBikes({
+                year : parseInt(year.current.value),
+                make : make.current.value,
+                model : model.current.value,
+                biketype : parseInt(type.current.value),
+                bikesize : parseInt(size.current.value),
+                image : image.current.value,
+                fee : fee.current.value
+            })
+        }
+    }
 
     return (
         <>
@@ -50,6 +102,8 @@ export const DashboardList = () => {
                             name="year"
                             className="form-control"
                             placeholder="2020"
+                            defaultValue="bike.year"
+                            onChange={handleControlledInputChange}
                             required
                         />
                     </fieldset>
@@ -61,6 +115,8 @@ export const DashboardList = () => {
                             name="make"
                             className="form-control"
                             placeholder="Trek"
+                            defaultValue="bike.make"
+                            onChange={handleControlledInputChange}
                             required
                         />
                     </fieldset>
@@ -72,6 +128,8 @@ export const DashboardList = () => {
                             name="model"
                             className="form-control"
                             placeholder="Madone"
+                            defaultValue="bike.model"
+                            onChange={handleControlledInputChange}
                             required
                         />
                     </fieldset>
@@ -81,6 +139,8 @@ export const DashboardList = () => {
                             ref={type}
                             type="select"
                             name="type"
+                            defaultValue="bike.type"
+                            onChange={handleControlledInputChange}
                             className="form-control"
                             required
                             >
@@ -98,6 +158,8 @@ export const DashboardList = () => {
                             ref={size}
                             type="select"
                             name="size"
+                            defaultValue="bike.size"
+                            onChange={handleControlledInputChange}
                             className="form-control"
                             required
                             >
@@ -108,6 +170,42 @@ export const DashboardList = () => {
                                     </option>
                                 ))}
                         </select>
+                    </fieldset>
+                    <fieldset>
+                        <label>Add a photo</label>
+                        <input
+                        className="form-control"
+                        id="image"
+                        name="image"
+                        type="file"
+                        />
+                    </fieldset>
+                    <fieldset>
+                        <label>Would you like to charge a fee to rent this bike?</label>
+                        <select
+                            ref={fee}
+                            type="select"
+                            name="fee"
+                            defaultValue="bike.fee"
+                            onChange={handleControlledInputChange}
+                            className="form-control"
+                            required
+                            >
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <button
+                            className='addBikeButton'
+                            type="submit"
+                            onclick={(evt) => {
+                                evt.preventDefault()
+                                addoreditBikes()
+                            }}
+                        >
+                        Add Bike
+                        </button>
                     </fieldset>
                 </form>
             </dialog>
