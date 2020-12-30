@@ -23,12 +23,27 @@ export const DashboardList = (props) => {
         fee: 1
     })
 
+    const [base64, setBase64] = useState(null)
+
     // const editMode = props.match.params.hasOwnProperty("bikeId")
 
     const handleControlledInputChange = (event) => {
         const newBike = Object.assign({}, bike)
         newBike[event.target.name] = event.target.value
         setBike(newBike)
+    }
+
+    const getBase64 = (file, callback) => {
+        const reader = new FileReader()
+        reader.addEventListener('load', () => callback(reader.result))
+        reader.readAsDataURL(file)
+    }
+
+    const createImageString = (event) => {
+        getBase64(event.target.files[0], (base64ImageString) => {
+            console.log("Base64 of file is", base64ImageString)
+            setBase64(base64ImageString)
+        })
     }
 
     // const getBikeInEditMode = () => {
@@ -79,7 +94,7 @@ export const DashboardList = (props) => {
                 model : bike.model,
                 biketype : parseInt(bike.type),
                 bikesize : parseInt(bike.size),
-                image : bike.image,
+                image : base64,
                 fee : bike.fee
             })
         // }
@@ -186,6 +201,7 @@ export const DashboardList = (props) => {
                         id="image"
                         name="image"
                         value={bike.image}
+                        onChange={createImageString}
                         type="file"
                         />
                     </fieldset>

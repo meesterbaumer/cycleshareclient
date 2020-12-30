@@ -21,10 +21,6 @@
     overflow: scroll;
 }
 
-.bike__image {
-    height: 10rem;
-}
-
 .searchedCity {
     margin-top: 2rem;
     text-align: center;
@@ -62,4 +58,8 @@
 .whereTo {
     text-align: center;
     margin-bottom: 1rem;
+}
+
+.bikeimage {
+    height: 300px;
 }
