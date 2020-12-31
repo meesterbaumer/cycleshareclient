@@ -15,7 +15,7 @@ export const MyBikesList = () => {
         <>
             <div className="mybikes">
                 {
-                    mybikes.map(bik => <MyBike key={bik.id} bike={bik} />)
+                    mybikes.map(bik => <MyBike key={bik.id} bike={bik} />).reverse()
                 }
             </div>
         </>
