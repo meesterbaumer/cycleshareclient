@@ -15,9 +15,18 @@ export const MyBikeProvider = (props) => {
         .then(setMyBikes)
     }
 
+    const deleteMyBikes = (bike) => {
+        return fetch(`http://localhost:8000/mybikes/${bike.id}`, {
+            method: "DELETE",
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("CS_token")}`
+        }
+        }).then(getMyBikes)
+    }
+
     return (
         <MyBikeContext.Provider value={{
-            mybikes, getMyBikes
+            mybikes, getMyBikes, deleteMyBikes
         }}>
             {props.children}
         </MyBikeContext.Provider>

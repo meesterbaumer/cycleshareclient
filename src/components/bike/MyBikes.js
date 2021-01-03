@@ -5,7 +5,7 @@ import "./Bike.css"
 
 export const MyBikesList = () => {
 
-    const {mybikes, getMyBikes } = useContext(MyBikeContext)
+    const {mybikes, getMyBikes} = useContext(MyBikeContext)
 
     useEffect(() => {
         getMyBikes()
