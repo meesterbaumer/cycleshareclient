@@ -16,7 +16,7 @@ export const MyBikeProvider = (props) => {
     }
 
     const deleteMyBikes = (bike) => {
-        return fetch(`http://localhost:8000/mybikes/${bike.id}`, {
+        return fetch(`http://localhost:8000/mybikes/${bike}`, {
             method: "DELETE",
             headers:{
                 "Authorization": `Token ${localStorage.getItem("CS_token")}`

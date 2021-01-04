@@ -7,9 +7,6 @@ export const MyBike = ({ bike }) => {
 
     const {deleteMyBikes} = useContext(MyBikeContext)
 
-    // useEffect(() => {
-    //     getMyBikes()
-    // }, [])
 
     return (
         <section className="individualBike">
