@@ -34,7 +34,7 @@ export const BikeDetailsList = (props) => {
                         </div>
                     </div>
                     <div className="bikeImageCont">
-                        <div className="bikeImage">{bike.image}</div>
+                        <div className="bike__image"><img className="bikeimage" src={bike.image}></img></div>
                     </div>
                 </div>
                 <div className="thirdThird">

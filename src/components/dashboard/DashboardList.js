@@ -96,7 +96,7 @@ export const DashboardList = (props) => {
                 bikesize : parseInt(bike.size),
                 image : base64,
                 fee : bike.fee
-            })
+            }).then(() => props.history.push("/"))
         // }
     }
 
@@ -227,10 +227,17 @@ export const DashboardList = (props) => {
                             onClick={(evt) => {
                                 evt.preventDefault()
                                 addoreditBikes()
+                                addBikeDialog.current.close()
+                                window.location.reload()
                             }}
                         >
                         Add Bike
                         </button>
+                        <button
+                        onClick={(e) => {
+                            addBikeDialog.current.close()
+                        }}
+                        >Close</button>
                     </fieldset>
                 </form>
             </dialog>

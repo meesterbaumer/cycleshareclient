@@ -5,7 +5,7 @@ import "./Bike.css"
 
 export const MyBikesList = () => {
 
-    const {mybikes, getMyBikes } = useContext(MyBikeContext)
+    const {mybikes, getMyBikes} = useContext(MyBikeContext)
 
     useEffect(() => {
         getMyBikes()
@@ -15,7 +15,7 @@ export const MyBikesList = () => {
         <>
             <div className="mybikes">
                 {
-                    mybikes.map(bik => <MyBike key={bik.id} bike={bik} />)
+                    mybikes.map(bik => <MyBike key={bik.id} bike={bik} />).reverse()
                 }
             </div>
         </>
