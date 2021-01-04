@@ -62,4 +62,9 @@
 
 .bikeimage {
     height: 150px;
+    cursor: pointer;
+}
+
+.bikeimagebig {
+    height: 500px;
 }
