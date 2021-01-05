@@ -110,7 +110,12 @@ export const BikeDetailsList = (props) => {
                     *RIDE AT YOUR OWN RISK!!
                 </div>
                 <br></br>
-                <button onClick={confirmReservation}>Confirm Reservation</button>
+                <button onClick={(evt) => {
+                    evt.preventDefault()
+                    confirmReservation()
+                    reserveBikeDialog.current.close()
+                    props.history.push("/")
+                }}>Confirm Reservation</button>
             </dialog>
         </>
     )
