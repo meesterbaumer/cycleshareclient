@@ -104,8 +104,8 @@ export const DashboardList = (props) => {
     return (
         <>
             {/* Initial render of dashboard content */}
-            <h3 className="greeting">Hello *username*, Welcome to CyCleShare</h3>
-            <SearchForm />
+            <h3 className="greeting">Hello Welcome to CyCleShare</h3>
+            <button onClick={() => props.history.push("/bikes")}>Ready to ride?!  Click here to get moving</button>
             <div className='upcomingRides'>Upcoming Rides
                 <MyReservationList />
             </div>
