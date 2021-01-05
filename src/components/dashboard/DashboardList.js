@@ -203,7 +203,6 @@ export const DashboardList = (props) => {
                         className="form-control"
                         id="image"
                         name="image"
-                        value={bike.image}
                         onChange={createImageString}
                         type="file"
                         />
