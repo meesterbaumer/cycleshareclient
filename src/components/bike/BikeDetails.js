@@ -11,15 +11,34 @@ export const BikeDetailsList = (props) => {
     const costTrue = bike.fee
     const reserveBikeDialog = useRef()
     const reserveBikeClicked = () => reserveBikeDialog.current.showModal()
-
+    
+    const handleControlledInputChange = (event) => {
+        const newRes = Object.assign({}, reservation)
+        newRes[event.target.name] = event.target.value
+        setReservation(newRes)
+    }
+    
     useEffect(() => {
         getPayments()
         getSingleBike(props.match.params.bikeId)
         .then(r => setBike(r))
     }, [])
+    
+    const [reservation, setReservation] = useState({
+        date: "",
+        paymentId: ""
+    })
+    
+    console.log(reservation.date)
+    console.log(reservation.paymentId)
 
-    
-    
+    const confirmReservation = () => {
+        addReservation({
+            date: reservation.date,
+            bikeId: parseInt(bike.id),
+            paymentId: parseInt(reservation.id)
+        })
+    }
 
 
     return (
@@ -53,29 +72,43 @@ export const BikeDetailsList = (props) => {
 
             {/* Dialog for reservation pop-up */}
             <dialog className="reserveDialog" ref={reserveBikeDialog}>
-                <div>confirming your reservation of *users name*'s</div>
+                <div>Confirming your reservation of *users name*'s</div>
                 <div>{bike.year} {bike.make} {bike.model}</div>
                 <div className="bikeImageCont">
                     <div className="bike__image"><img className="bikeimage" src={bike.image}></img></div>
                 </div>
                 <div>
-                    <select>
-                        <option value="0">Select from the dates below</option>
+                    <input
+                    type="date"
+                    name="date"
+                    onChange={handleControlledInputChange}
+                    >
+                    </input>
+                    <select
+                        type="select"
+                        name="paymentId"
+                        className="paymentDD"
+                        onChange={handleControlledInputChange}
+                    >
+                        <option value="0">Select</option>
+                        {payments.map((p) => (
+                            <option key={p.id} value={p.id}>{p.payment.name}</option>
+                        ))}
                     </select>
-                    <select>Payment Method</select>
                 </div>
-                <div className="finePrint">Ensure payment availabiltiy upon arrival
+                <div className="finePrint">
+                    *Ensure payment availabiltiy upon arrival
                     <br></br>
-                    Be sure to bring a helmet for safety
+                    *Be sure to bring a helmet for safety
                     <br></br>
-                    CyCleShare assumes no responsibility for damage,
+                    *CyCleShare assumes no responsibility for damage,
                     <br></br>
                     injury or death while using the platform.
                     <br></br>
-                    RIDE AT YOUR OWN RISK!!
+                    *RIDE AT YOUR OWN RISK!!
                 </div>
                 <br></br>
-                <button>Confirm Reservation</button>
+                <button onClick={confirmReservation}>Confirm Reservation</button>
             </dialog>
         </>
     )
