@@ -6,6 +6,7 @@ import { BikeSizeContext } from "../bike/bikesizeprovider"
 import { SearchForm } from "../dashboard/SearchForm"
 import "./Dashboard.css"
 import { MyBikesList } from "../bike/MyBikes"
+import { MyReservationList } from "../reservation/ReservationsList"
 
 export const DashboardList = (props) => {
 
@@ -105,7 +106,9 @@ export const DashboardList = (props) => {
             {/* Initial render of dashboard content */}
             <h3 className="greeting">Hello *username*, Welcome to CyCleShare</h3>
             <SearchForm />
-            <div className='upcomingRides'>Upcoming Rides</div>
+            <div className='upcomingRides'>Upcoming Rides
+                <MyReservationList />
+            </div>
             <div className='myGarage'>Garage
             <button onClick={addBikeClicked} className='addBikeButton'>Add a Bike</button>
                 <MyBikesList />
