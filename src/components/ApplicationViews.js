@@ -43,6 +43,9 @@ export const ApplicationViews = (props) => {
                                             <Route path="/completeprofile">
                                                 <CompleteProfile />
                                             </Route>
+                                            <Route exact path="/reviews">
+                                                
+                                            </Route>
                                         </ReservationProvider>
                                     </MyBikeProvider>
                                 </PaymentProvider>

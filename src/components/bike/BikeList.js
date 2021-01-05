@@ -11,11 +11,6 @@ export const BikeList = () => {
     const [ filteredBikes, setFiltered ] = useState([])
     const history = useHistory()
 
-    // const notMyBikes = bikes
-    //     .filter((b) => {
-    //         return 
-    //     })
-
     useEffect(() => {
         getBikes()
     }, [])
