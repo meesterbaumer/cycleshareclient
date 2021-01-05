@@ -15,7 +15,19 @@ export const MyBikeProvider = (props) => {
         .then(setMyBikes)
     }
 
-    const deleteMyBikes = (bike) => {
+    const updateMyBike = bike => {
+        return fetch(`http://localhost:8000/mybikes/${bike.id}`, {
+            method: "PUT",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("CS_token")}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(bike)
+        })
+            .then(getMyBikes)
+    }
+
+    const deleteMyBikes = bike => {
         return fetch(`http://localhost:8000/mybikes/${bike}`, {
             method: "DELETE",
             headers:{
@@ -26,7 +38,7 @@ export const MyBikeProvider = (props) => {
 
     return (
         <MyBikeContext.Provider value={{
-            mybikes, getMyBikes, deleteMyBikes
+            mybikes, getMyBikes, updateMyBike, deleteMyBikes
         }}>
             {props.children}
         </MyBikeContext.Provider>

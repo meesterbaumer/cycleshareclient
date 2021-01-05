@@ -10,6 +10,7 @@ import { PaymentProvider } from "./payments/PaymentProvider"
 import { DashboardList } from "./dashboard/DashboardList"
 import { StateProvider } from "./state/StateProvider"
 import { MyBikeProvider } from "./bike/MyBikesProvider"
+import { SearchForm } from "./dashboard/SearchForm"
 
 export const ApplicationViews = (props) => {
     return (
@@ -26,7 +27,12 @@ export const ApplicationViews = (props) => {
                                         exact path="/"
                                         render={(props) => <DashboardList {...props} />}
                                         />
+                                        <Route 
+                                        exact path="/edit/:bikeId(\d+)"
+                                        render={(props) => <DashboardList {...props} />}
+                                        />
                                         <Route exact path="/bikes">
+                                            <SearchForm />
                                             <BikeList />
                                         </Route>
                                         <Route path="/bikes/:bikeId(\d+)" render={

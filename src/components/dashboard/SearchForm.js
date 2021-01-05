@@ -1,18 +1,10 @@
-import React, { useContext, useEffect } from "react"
-import { StateContext } from "../state/StateProvider"
+import React, { useContext } from "react"
+import { BikeContext } from "../bike/bikeprovider"
 import "./searchForm.css"
 
-export const SearchForm = (city) => {
+export const SearchForm = () => {
     
-    const { states, getStates } = useContext(StateContext)
-
-    const state = React.createRef()
-
-    useEffect(() => {
-        getStates()
-    }, [])
-
-
+    const { setTerms } = useContext(BikeContext)
 
     return (
         <>
@@ -23,27 +15,11 @@ export const SearchForm = (city) => {
                     <input 
                     name="search"
                     type="text"
+                    onKeyUp={(event) => setTerms(event.target.value)}
                     className="cityBox"
                     placeholder="Enter city to search"
                     />
                 </fieldset>
-                <fieldset>
-                    <label htmlFor="state"></label>
-                    <select
-                    ref={state}
-                    name="state"
-                    className="statePicker"
-                    required
-                    >
-                        <option value="0">Choose a state</option>
-                        {states.map((s) => (
-                            <option key={s.id} value={s.id}>
-                                {s.name}
-                            </option>
-                        ))}
-                    </select>
-                </fieldset>
-                <button className=" rideButton btn btn-1">Find a Ride!</button>
             </form>
         </div>
         </>
