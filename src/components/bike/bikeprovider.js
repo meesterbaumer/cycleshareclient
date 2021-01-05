@@ -4,6 +4,7 @@ export const BikeContext = React.createContext()
 
 export const BikeProvider = (props) => {
     const [bikes, setBikes] = useState([])
+    const [searchTerms, setTerms] = useState("")
 
     const getBikes = () => {
         return fetch("http://localhost:8000/bikes", {
@@ -58,7 +59,7 @@ export const BikeProvider = (props) => {
 
     return (
         <BikeContext.Provider value={{
-            bikes, getBikes, addBikes, editBikes, deleteBikes, getSingleBike
+            bikes, getBikes, addBikes, editBikes, deleteBikes, getSingleBike, searchTerms, setTerms
         }}>
             {props.children}
         </BikeContext.Provider>

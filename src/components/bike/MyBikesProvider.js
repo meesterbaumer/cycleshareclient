@@ -38,7 +38,7 @@ export const MyBikeProvider = (props) => {
 
     return (
         <MyBikeContext.Provider value={{
-            mybikes, getMyBikes, deleteMyBikes
+            mybikes, getMyBikes, updateMyBike, deleteMyBikes
         }}>
             {props.children}
         </MyBikeContext.Provider>
