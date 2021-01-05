@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
 import { BikeContext } from "./bikeprovider"
 import { PaymentContext } from "../payments/PaymentProvider"
+import { ReservationContext } from "../reservation/ReservationProvider"
 import "./BikeDetail.css"
 
 export const BikeDetailsList = (props) => {
     const { getSingleBike } = useContext(BikeContext)
     const { payments, getPayments } = useContext(PaymentContext)
+    const { addReservation } = useContext(ReservationContext)
 
     const [bike, setBike] = useState({biketype:"", bikesize:"", image:"", rider:"", user:""})
     const costTrue = bike.fee
@@ -36,7 +38,7 @@ export const BikeDetailsList = (props) => {
         addReservation({
             date: reservation.date,
             bikeId: parseInt(bike.id),
-            paymentId: parseInt(reservation.id)
+            paymentId: parseInt(reservation.paymentId)
         })
     }
 

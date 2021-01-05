@@ -27,8 +27,8 @@ export const ReservationProvider = (props) => {
     }
 
     return (
-        <ReservationContext.Provider values={{
-            reservations, getReservations
+        <ReservationContext.Provider value={{
+            reservations, getReservations, addReservation
         }}>
             {props.children}
         </ReservationContext.Provider>
