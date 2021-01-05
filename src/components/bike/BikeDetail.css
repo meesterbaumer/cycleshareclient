@@ -37,3 +37,14 @@
 .thirdThird {
     padding-top: 1rem;
 }
+.finePrint {
+    font-size: 10%;
+    text-align: left;
+}
+
+.reserveDialog {
+    text-align: center;
+}
+.paymentDD {
+    color: black;
+}

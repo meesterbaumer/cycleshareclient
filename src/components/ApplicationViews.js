@@ -11,6 +11,7 @@ import { DashboardList } from "./dashboard/DashboardList"
 import { StateProvider } from "./state/StateProvider"
 import { MyBikeProvider } from "./bike/MyBikesProvider"
 import { SearchForm } from "./dashboard/SearchForm"
+import { ReservationProvider } from "./reservation/ReservationProvider"
 
 export const ApplicationViews = (props) => {
     return (
@@ -23,24 +24,26 @@ export const ApplicationViews = (props) => {
                             <StateProvider>
                                 <PaymentProvider>
                                     <MyBikeProvider>
-                                        <Route 
-                                        exact path="/"
-                                        render={(props) => <DashboardList {...props} />}
-                                        />
-                                        <Route 
-                                        exact path="/edit/:bikeId(\d+)"
-                                        render={(props) => <DashboardList {...props} />}
-                                        />
-                                        <Route exact path="/bikes">
-                                            <SearchForm />
-                                            <BikeList />
-                                        </Route>
-                                        <Route path="/bikes/:bikeId(\d+)" render={
-                                            props => <BikeDetailsList {...props} />
-                                        } />
-                                        <Route path="/completeprofile">
-                                            <CompleteProfile />
-                                        </Route>
+                                        <ReservationProvider>
+                                            <Route 
+                                            exact path="/"
+                                            render={(props) => <DashboardList {...props} />}
+                                            />
+                                            <Route 
+                                            exact path="/edit/:bikeId(\d+)"
+                                            render={(props) => <DashboardList {...props} />}
+                                            />
+                                            <Route exact path="/bikes">
+                                                <SearchForm />
+                                                <BikeList />
+                                            </Route>
+                                            <Route path="/bikes/:bikeId(\d+)" render={
+                                                props => <BikeDetailsList {...props} />
+                                            } />
+                                            <Route path="/completeprofile">
+                                                <CompleteProfile />
+                                            </Route>
+                                        </ReservationProvider>
                                     </MyBikeProvider>
                                 </PaymentProvider>
                             </StateProvider>
