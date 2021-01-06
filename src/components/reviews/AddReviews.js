@@ -18,11 +18,14 @@ export const AddReviewList = () => {
     return (
         <>
             <div className="addReviewsContainer">
-                <div>Leave a Review</div>
                 <div className="bottomHalf">
-                    {
-                        reservations.map(res => <ReservationReview key={res.id} reservation={res} />).reverse()
-                    }
+                    <div>Leave a Review</div>
+                    <br></br>
+                    <div className="mappedReservations">
+                        {
+                            reservations.map(res => <ReservationReview key={res.id} reservation={res} />).reverse()
+                        }
+                    </div>
                 </div>
             </div>
         </>

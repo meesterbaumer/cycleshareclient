@@ -21,6 +21,7 @@
 
 .bottomHalf {
     display: flex;
+    flex-direction: column;
     border: 2px solid black;
     background-color: white;
     width: fit-content;
@@ -39,4 +40,9 @@
 
 .reviewAuthor {
     text-align: right;
+}
+
+.mappedReservations {
+    display: flex;
+    flex-direction: row;
 }
