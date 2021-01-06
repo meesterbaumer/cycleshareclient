@@ -13,7 +13,7 @@ export const NavBar = (props) => {
                 <Link className="navbar__link" to="/profile">Profile</Link>
             </li>
             <li className="navbar__item">
-                <Link className="navbar__link" to="/review">Reviews</Link>
+                <Link className="navbar__link" to="/reviews">Reviews</Link>
             </li>
             {
                 (localStorage.getItem("CS_token") !== null) ?

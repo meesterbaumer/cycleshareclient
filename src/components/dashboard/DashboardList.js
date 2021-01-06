@@ -7,6 +7,7 @@ import { SearchForm } from "../dashboard/SearchForm"
 import "./Dashboard.css"
 import { MyBikesList } from "../bike/MyBikes"
 import { MyReservationList } from "../reservation/ReservationsList"
+import { ReviewList } from "../reviews/ReviewList"
 
 export const DashboardList = (props) => {
 
@@ -113,7 +114,9 @@ export const DashboardList = (props) => {
             <button onClick={addBikeClicked} className='addBikeButton'>Add a Bike</button>
                 <MyBikesList />
             </div>
-            <div className='myReviews'>Reviews</div>
+            <div className='myReviews'>Reviews
+                <ReviewList />
+            </div>
 
             {/* POP UP Dialog for adding a bike to your garage */}
             <dialog className="addBikeDialog" ref={addBikeDialog}>
@@ -203,7 +206,6 @@ export const DashboardList = (props) => {
                         className="form-control"
                         id="image"
                         name="image"
-                        value={bike.image}
                         onChange={createImageString}
                         type="file"
                         />
