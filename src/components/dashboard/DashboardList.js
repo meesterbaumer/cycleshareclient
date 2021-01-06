@@ -19,8 +19,8 @@ export const DashboardList = (props) => {
         year: 2020,
         make: "",
         model: "",
-        type: 1,
-        size: 4,
+        biketype: {},
+        bikesize: {},
         image: "",
         fee: 1
     })
@@ -39,7 +39,17 @@ export const DashboardList = (props) => {
         if (editMode) {
           const bikeId = parseInt(props.match.params.bikeId);
           const selectedBike = bikes.find((a) => a.id === bikeId) || {};
-          setBike(selectedBike);
+          const bikeTemplate = {
+              id: selectedBike.id,
+              year : selectedBike.year,
+              make : selectedBike.make,
+              model : selectedBike.model,
+              biketype : selectedBike.biketype.id,
+              bikesize : selectedBike.bikesize.id,
+              image : "",
+              fee : selectedBike.fee
+          }
+          setBike(bikeTemplate);
         }
       };
 
@@ -98,8 +108,8 @@ export const DashboardList = (props) => {
                 year : parseInt(bike.year),
                 make : bike.make,
                 model : bike.model,
-                biketype : parseInt(bike.type),
-                bikesize : parseInt(bike.size),
+                biketype : parseInt(bike.biketype),
+                bikesize : parseInt(bike.bikesize),
                 image : base64,
                 fee : bike.fee
             })
@@ -108,8 +118,8 @@ export const DashboardList = (props) => {
                 year : parseInt(bike.year),
                 make : bike.make,
                 model : bike.model,
-                biketype : parseInt(bike.type),
-                bikesize : parseInt(bike.size),
+                biketype : parseInt(bike.biketype),
+                bikesize : parseInt(bike.bikesize),
                 image : base64,
                 fee : bike.fee
             })
@@ -181,8 +191,8 @@ export const DashboardList = (props) => {
                         <select
                             // ref={type}
                             type="select"
-                            name="type"
-                            value={bike.type}
+                            name="biketype"
+                            value={bike.biketype}
                             onChange={handleControlledInputChange}
                             className="form-control"
                             required
@@ -200,8 +210,8 @@ export const DashboardList = (props) => {
                         <select
                             // ref={size}
                             type="select"
-                            name="size"
-                            value={bike.size}
+                            name="bikesize"
+                            value={bike.bikesize}
                             onChange={handleControlledInputChange}
                             className="form-control"
                             required
