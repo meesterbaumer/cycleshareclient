@@ -27,13 +27,21 @@ export const DashboardList = (props) => {
 
     const [base64, setBase64] = useState(null)
 
-    // const editMode = props.match.params.hasOwnProperty("bikeId")
+    const editMode = props.match.params.hasOwnProperty("bikeId")
 
     const handleControlledInputChange = (event) => {
         const newBike = Object.assign({}, bike)
         newBike[event.target.name] = event.target.value
         setBike(newBike)
     }
+
+    const getBikeInEditMode = () => {
+        if (editMode) {
+          const bikeId = parseInt(props.match.params.bikeId);
+          const selectedBike = bikes.find((a) => a.id === bikeId) || {};
+          setBike(selectedBike);
+        }
+      };
 
     const getBase64 = (file, callback) => {
         const reader = new FileReader()
@@ -48,13 +56,23 @@ export const DashboardList = (props) => {
         })
     }
 
-    // const getBikeInEditMode = () => {
-    //     if (editMode) {
-    //         const bikeId = parseInt(props.match.params.bikeId)
-    //         const selectedBike = bikes.find((b) => b.id === bikeId) || {}
-    //         setBike(selectedBike)
-    //     }
-    // }
+    useEffect(() => {
+        if (editMode) {
+          console.log("EditMode");
+          addBikeClicked();
+        } else {
+          console.log("not Edit Mode");
+        }
+      }, []);
+
+    useEffect(() => {
+        getBikeInEditMode();
+        }, [bikes]);
+
+    useEffect(() => {
+        console.log(bike)
+    }, [bike])
+
 
     const addBikeDialog = useRef()
     // const year = useRef()
@@ -73,23 +91,19 @@ export const DashboardList = (props) => {
         getBikeSizes()
     }, [])
 
-    // useEffect(() => {
-    //     getBikeInEditMode()
-    // }, [bikes])
-
     const addoreditBikes = () => {
-        // if (editMode) {
-        //     editBikes({
-        //         id: bike.id,
-        //         year : parseInt(year.current.value),
-        //         make : make.current.value,
-        //         model : model.current.value,
-        //         biketype : parseInt(type.current.value),
-        //         bikesize : parseInt(size.current.value),
-        //         image : image.current.value,
-        //         fee : fee.current.value
-        //     })
-        // } else {
+        if (editMode) {
+            editBikes({
+                id: bike.id,
+                year : parseInt(bike.year),
+                make : bike.make,
+                model : bike.model,
+                biketype : parseInt(bike.type),
+                bikesize : parseInt(bike.size),
+                image : base64,
+                fee : bike.fee
+            })
+        } else {
             addBikes({
                 year : parseInt(bike.year),
                 make : bike.make,
@@ -98,8 +112,8 @@ export const DashboardList = (props) => {
                 bikesize : parseInt(bike.size),
                 image : base64,
                 fee : bike.fee
-            }).then(() => props.history.push("/"))
-        // }
+            })
+        }
     }
 
     return (
@@ -168,7 +182,7 @@ export const DashboardList = (props) => {
                             // ref={type}
                             type="select"
                             name="type"
-                            defaultValue={bike.type}
+                            value={bike.type}
                             onChange={handleControlledInputChange}
                             className="form-control"
                             required
@@ -187,7 +201,7 @@ export const DashboardList = (props) => {
                             // ref={size}
                             type="select"
                             name="size"
-                            defaultValue={bike.size}
+                            value={bike.size}
                             onChange={handleControlledInputChange}
                             className="form-control"
                             required
@@ -233,7 +247,7 @@ export const DashboardList = (props) => {
                                 evt.preventDefault()
                                 addoreditBikes()
                                 addBikeDialog.current.close()
-                                window.location.reload()
+                                props.history.push("/")
                             }}
                         >
                         Add Bike
@@ -241,6 +255,7 @@ export const DashboardList = (props) => {
                         <button
                         onClick={(e) => {
                             addBikeDialog.current.close()
+                            props.history.push("/");
                         }}
                         >Close</button>
                     </fieldset>
