@@ -37,7 +37,8 @@ export const BikeProvider = (props) => {
     };
 
     const editBikes = (bike) => {
-    return fetch(`http://localhost:8000/bike/${bike.id}`, {
+        debugger
+    return fetch(`http://localhost:8000/bikes/${bike.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
