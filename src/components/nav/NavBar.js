@@ -6,15 +6,15 @@ export const NavBar = (props) => {
     return (
     <>
         <ul className="navbar">
-            <li className="navbar__item active">
+            <button className="navbar__item">
                 <Link className="navbar__link" to="/">Dashboard</Link>
-            </li>
-            <li className="navbar__item">
+            </button>
+            {/* <button className="navbar__item">
                 <Link className="navbar__link" to="/profile">Profile</Link>
-            </li>
-            <li className="navbar__item">
+            </button> */}
+            <button className="navbar__item">
                 <Link className="navbar__link" to="/reviews">Reviews</Link>
-            </li>
+            </button>
             {
                 (localStorage.getItem("CS_token") !== null) ?
                     <li className="nav-item">
