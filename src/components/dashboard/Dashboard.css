@@ -7,8 +7,10 @@
     color: black;
     margin-top: 20px;
     background-color: lightgray;
+    border: 5px solid black;
+    border-radius: 1rem;
     width: auto;
-    height: fit-content;
+    height: auto;
 }
 
 .myGarage {
@@ -27,8 +29,10 @@
     color: black;
     margin-top: 20px;
     background-color: lightgray;
+    border: 5px solid black;
+    border-radius: 1rem;
     width: auto;
-    height: 200px;
+    height: auto;
 }
 .addBikeButton {
     margin-left: 20px;
@@ -38,4 +42,13 @@
 .addBikeDialog {
     width: 250px;
     background-color: lightgrey;
+}
+
+.upcomingRidesText {
+    margin-left: 10px;
+
+}
+
+.myGarageText {
+    margin-left: 10px;
 }

@@ -14,9 +14,11 @@ export const MyReservationList = () => {
     return (
         <>
             <div className="myreservations">
+            <br></br>
                 {
                     reservations.map(res => <MyReservation key={res.id} reservation={res} />)
                 }
+                <br></br>
             </div>
         </>
     )

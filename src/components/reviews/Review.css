@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .addReviewsContainer {
@@ -15,8 +15,9 @@
 .topHalf {
     border: 2px solid black;
     background-color: white;
-    width: fit-content;
+    width: 600px;
     margin: 10px;
+    padding: 10px;
 }
 
 .bottomHalf {
@@ -24,7 +25,8 @@
     flex-direction: column;
     border: 2px solid black;
     background-color: white;
-    width: 500px;
+    padding: 10px;
+    width: 600px;
     margin: 10px;
     overflow: auto;
 }
