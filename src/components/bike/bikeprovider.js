@@ -33,21 +33,19 @@ export const BikeProvider = (props) => {
             "Authorization": `Token ${localStorage.getItem("CS_token")}`
           },
           body: JSON.stringify(bike),
-        }).then(getBikes);
+        }).then(getBikes)
     };
 
     const editBikes = (bike) => {
-        debugger
-    return fetch(`http://localhost:8000/bikes/${bike.id}`, {
+        return fetch(`http://localhost:8000/bikes/${bike.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Token ${localStorage.getItem("CS_token")}`
         },
         body: JSON.stringify(bike)
-        })
-    .then(getBikes)
-    }
+        }).then(getBikes)
+    };
 
     const deleteBikes = (bikeId) => {
         return fetch(`http://localhost:8000/bikes/${bikeId}`, {
