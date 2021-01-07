@@ -3,6 +3,7 @@ import { BikeContext } from "./bikeprovider"
 import { PaymentContext } from "../payments/PaymentProvider"
 import { ReservationContext } from "../reservation/ReservationProvider"
 import "./BikeDetail.css"
+import { ReviewList } from "../reviews/ReviewList"
 
 export const BikeDetailsList = (props) => {
     const { getSingleBike } = useContext(BikeContext)
@@ -53,7 +54,7 @@ export const BikeDetailsList = (props) => {
                             <div>Type: {bike.biketype.label}</div>
                             <div>Size: {bike.bikesize.label}</div>
                             <div>Rental fee: {costTrue ? "This bike can be rented for 5$ per hour.  See below for payment options:" : "Great news!  This bike is being offered for free!"}</div>
-                            <div>{costTrue ? (<div><ul>{payments.map(p => <li>{p.payment.name}</li>)}</ul></div>): ""}</div>
+                            <div>{costTrue ? (<div><ul>{payments.map(p => <li>{p.name}</li>)}</ul></div>): ""}</div>
                         </div>
                     </div>
                     <div className="bikeImageCont">
@@ -62,7 +63,8 @@ export const BikeDetailsList = (props) => {
                 </div>
                 <div className="thirdThird">
                     <div>
-                        placeholder to load some recent reviews
+                        <div>Check out what you're fellow riders think:</div>
+                        <ReviewList />
                     </div>
                 </div>
                 <div className="fourthThird">
@@ -74,7 +76,7 @@ export const BikeDetailsList = (props) => {
 
             {/* Dialog for reservation pop-up */}
             <dialog className="reserveDialog" ref={reserveBikeDialog}>
-                <div>Confirming your reservation of *users name*'s</div>
+                <div>Confirming your reservation of this</div>
                 <div>{bike.year} {bike.make} {bike.model}</div>
                 <div className="bikeImageCont">
                     <div className="bike__image"><img className="bikeimage" src={bike.image}></img></div>
