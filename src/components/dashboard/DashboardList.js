@@ -8,6 +8,7 @@ import "./Dashboard.css"
 import { MyBikesList } from "../bike/MyBikes"
 import { MyReservationList } from "../reservation/ReservationsList"
 import { ReviewList } from "../reviews/ReviewList"
+import { useHistory } from "react-router-dom"
 
 export const DashboardList = (props) => {
 
@@ -28,6 +29,7 @@ export const DashboardList = (props) => {
     const [base64, setBase64] = useState(null)
 
     const editMode = props.match.params.hasOwnProperty("bikeId")
+    const createMode = props.match.params.hasOwnProperty("bike")
 
     const handleControlledInputChange = (event) => {
         const newBike = Object.assign({}, bike)
@@ -66,12 +68,14 @@ export const DashboardList = (props) => {
         })
     }
 
+    const history = useHistory()
+
     useEffect(() => {
         if (editMode) {
           console.log("EditMode");
           addBikeClicked();
-        } else {
-          console.log("not Edit Mode");
+        } else if (createMode) {
+          addBikeClicked();
         }
       }, []);
 
@@ -113,6 +117,8 @@ export const DashboardList = (props) => {
                 image : base64,
                 fee : bike.fee
             })
+            .then(() => history.push("/"))
+            
         } else {
             addBikes({
                 year : parseInt(bike.year),
@@ -123,6 +129,8 @@ export const DashboardList = (props) => {
                 image : base64,
                 fee : bike.fee
             })
+            .then(() => history.push("/"))
+            addBikeDialog.current.close()
         }
     }
 
@@ -135,7 +143,7 @@ export const DashboardList = (props) => {
                 <MyReservationList />
             </div>
             <div className='myGarage'>Garage
-            <button onClick={addBikeClicked} className='addBikeButton'>Add a Bike</button>
+            <button onClick={() => props.history.push("/create/bike")} className='addBikeButton'>Add a Bike</button>
                 <MyBikesList />
             </div>
             <div className='myReviews'>Reviews
@@ -257,7 +265,7 @@ export const DashboardList = (props) => {
                                 evt.preventDefault()
                                 addoreditBikes()
                                 addBikeDialog.current.close()
-                                props.history.push("/")
+                                
                             }}
                         >
                         Add Bike

@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react"
+import { useHistory } from "react-router-dom"
 import { ReviewContext } from "../reviews/ReviewProvider"
 import "./Reservation.css"
 
 export const ReservationReview = ({ reservation }) => { 
 
     const { addReviews } = useContext(ReviewContext)
+
+    const history = useHistory()
 
     const [review, setReview] = useState({
         message: ""
@@ -21,6 +24,7 @@ export const ReservationReview = ({ reservation }) => {
             message : review.message,
             user : reservation.bike.rider.id
         })
+        .then(history.push("/"))
     }
 
     return (

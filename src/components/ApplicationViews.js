@@ -34,6 +34,10 @@ export const ApplicationViews = (props) => {
                                                 render={(props) => <DashboardList {...props} />}
                                                 />
                                                 <Route 
+                                                path="/create/:bike"
+                                                render={(props) => <DashboardList {...props} />}
+                                                />
+                                                <Route 
                                                 exact path="/edit/:bikeId(\d+)"
                                                 render={(props) => <DashboardList {...props} />}
                                                 />
