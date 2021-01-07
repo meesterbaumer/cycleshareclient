@@ -76,6 +76,7 @@ export const BikeDetailsList = (props) => {
 
             {/* Dialog for reservation pop-up */}
             <dialog className="reserveDialog" ref={reserveBikeDialog}>
+                <div className="closeButton"><button onClick={() => reserveBikeDialog.current.close()}>X</button></div>
                 <div>Confirming your reservation of this</div>
                 <div>{bike.year} {bike.make} {bike.model}</div>
                 <div className="bikeImageCont">

@@ -48,3 +48,7 @@
 .paymentDD {
     color: black;
 }
+
+.closeButton {
+    text-align: right;
+}
