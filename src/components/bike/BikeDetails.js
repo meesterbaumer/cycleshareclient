@@ -94,7 +94,7 @@ export const BikeDetailsList = (props) => {
                     >
                         <option value="0">Select</option>
                         {payments.map((p) => (
-                            <option key={p.id} value={p.id}>{p.payment.name}</option>
+                            <option key={p.id} value={p.id}>{p.name}</option>
                         ))}
                     </select>
                 </div>
