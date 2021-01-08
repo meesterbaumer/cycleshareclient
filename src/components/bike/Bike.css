@@ -1,7 +1,7 @@
 .individualBike {
     border: 2px solid black;
     border-radius: 20px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.3);
     color: white;
     width: fit-content;
     margin: 20px;
@@ -68,3 +68,6 @@
 .bikeimagebig {
     height: 500px;
 }
+
+
+

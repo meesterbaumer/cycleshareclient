@@ -1,10 +1,12 @@
 .detailContainer {
     margin: auto;
     margin-top: 3rem;
+    padding: 10px;
+    border: 2px solid black;
     border-radius: 20px;
-    background-color: black;
-    width: 75%;
-    height: 600px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 60%;
+    height: 700px;
     color:white;
     text-align: center;
 }
@@ -47,4 +49,8 @@
 }
 .paymentDD {
     color: black;
+}
+
+.closeButton {
+    text-align: right;
 }

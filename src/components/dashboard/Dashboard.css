@@ -6,29 +6,36 @@
     margin: auto;
     color: black;
     margin-top: 20px;
-    background-color: lightgray;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 5px solid black;
+    border-radius: 1rem;
     width: auto;
-    height: fit-content;
+    height: auto;
+    font-size: 1.25rem;
 }
 
 .myGarage {
     margin: auto;
     color: black;
     margin-top: 20px;
-    background-color: lightgray;
+    background-color: rgba(0, 0, 0, 0.25);
     border: 5px solid black;
     border-radius: 1rem;
     width: auto;
     height: auto;
+    font-size: 1.25rem;
 }
 
 .myReviews {
     margin: auto;
     color: black;
     margin-top: 20px;
-    background-color: lightgray;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 5px solid black;
+    border-radius: 1rem;
     width: auto;
-    height: 200px;
+    height: auto;
+    font-size: 1.25rem;
 }
 .addBikeButton {
     margin-left: 20px;
@@ -39,3 +46,51 @@
     width: 250px;
     background-color: lightgrey;
 }
+
+.upcomingRidesText {
+    margin-left: 10px;
+    margin-top: 5px;
+
+}
+
+.myGarageText {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.reviewsText {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.rideButton {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+.btn-grad {background-image: linear-gradient(to right, #000000 0%, #434343  51%, #000000  100%)}
+.btn-grad {
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: block;
+ }
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+
+
+

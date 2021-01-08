@@ -32,7 +32,9 @@ export const ReservationReview = ({ reservation }) => {
             <div className="individualReservationReview">
                 <div className="reviewFirstName">{reservation.bike.rider.user.first_name}</div>
                 <div className="reviewFirstName">{reservation.bike.rider.user.last_name}</div>
-                <div className="reviewMessage">Thank {reservation.bike.rider.user.first_name} for the ride</div>
+                <br></br>
+                <div className="addreviewMessage">Thank {reservation.bike.rider.user.first_name} for the ride</div>
+                <div className="addreviewMessage">on his {reservation.bike.year} {reservation.bike.model}</div>
                 <textarea
                 name="message"
                 id="message"

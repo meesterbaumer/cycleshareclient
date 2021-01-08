@@ -138,15 +138,15 @@ export const DashboardList = (props) => {
         <>
             {/* Initial render of dashboard content */}
             <h3 className="greeting">Hello Welcome to CyCleShare</h3>
-            <button onClick={() => props.history.push("/bikes")}>Ready to ride?!  Click here to get moving</button>
-            <div className='upcomingRides'>Upcoming Rides
+            <div className="rideButton"><button className="btn-grad" onClick={() => props.history.push("/bikes")}>Ready to ride?!  Click here to get moving</button></div>
+            <div className='upcomingRides'><div className="upcomingRidesText">Upcoming Rides</div>
                 <MyReservationList />
             </div>
-            <div className='myGarage'>Garage
+            <div className='myGarage'><div className="myGarageText">Garage</div>
             <button onClick={() => props.history.push("/create/bike")} className='addBikeButton'>Add a Bike</button>
                 <MyBikesList />
             </div>
-            <div className='myReviews'>Reviews
+            <div className='myReviews'><div className="reviewsText">Reviews</div>
                 <ReviewList />
             </div>
 
