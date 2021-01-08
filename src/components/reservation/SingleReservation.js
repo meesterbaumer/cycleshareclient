@@ -27,7 +27,7 @@ export const MyReservation = ({reservation}) => {
                 <div className="centered">{reservation.payment.name}</div>
             </dialog>
             <div className="individualReservation">
-                <Link onClick={reservationDialogClicked}><div className="date">{month}/{day}/{year} in {reservation.bike.rider.city}, {reservation.bike.rider.state.name}</div></Link>
+                <Link onClick={reservationDialogClicked}><a className="date">{month}/{day}/{year} in {reservation.bike.rider.city}, {reservation.bike.rider.state.name}</a></Link>
             </div>
         </>
     )

@@ -4,10 +4,11 @@
     padding: 10px;
     border: 2px solid black;
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
     width: 60%;
-    height: 700px;
-    color:white;
+    height: fit-content;
+    color:black;
     text-align: center;
 }
 
@@ -29,6 +30,7 @@
 
 .bikeImageCont {
     padding: 10px;
+    text-align: center;
 }
 
 

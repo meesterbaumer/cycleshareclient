@@ -42,7 +42,7 @@ export const Login = props => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Level Up</h1>
+                    <h1>CyCleShare</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
@@ -55,12 +55,12 @@ export const Login = props => {
                     <fieldset style={{
                         textAlign:"center"
                     }}>
-                        <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
+                        <button className="btn btn-1 btn-sep icon-send btn-grad" type="submit">Sign In</button>
                     </fieldset>
                 </form>
             </section>
             <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
+                <Link className="linkregister" to="/register">Not a member yet?</Link>
             </section>
         </main>
     )
