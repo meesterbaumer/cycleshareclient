@@ -17,7 +17,7 @@ export const ReviewList = () => {
         <>
             <div className="reviewsContainer">
                 <div className="topHalf">
-                <div className="reviewsHeading">Recent Reviews</div>
+                {/* <div className="reviewsHeading">Recent Reviews</div> */}
                     {
                         reviews.map(rev => <Review key={rev.id} review={rev} />).reverse()
                     }

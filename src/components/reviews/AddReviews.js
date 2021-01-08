@@ -19,7 +19,7 @@ export const AddReviewList = () => {
         <>
             <div className="addReviewsContainer">
                 <div className="bottomHalf">
-                    <div>Leave a Review</div>
+                    {/* <div>Leave a Review for:</div> */}
                     <br></br>
                     <div className="mappedReservations">
                         {

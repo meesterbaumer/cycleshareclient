@@ -52,7 +52,9 @@ export const ApplicationViews = (props) => {
                                                     <CompleteProfile />
                                                 </Route>
                                                 <Route exact path="/reviews">
+                                                    <div className="reviewsHeading">Recent Reviews</div>
                                                     <ReviewList />
+                                                    <div>Leave a Review for:</div>
                                                     <AddReviewList />
                                                 </Route>
                                             </ReviewProvider>
