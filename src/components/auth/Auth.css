@@ -49,14 +49,18 @@ fieldset {
 .form--login {
     background-size: cover;
     background-position-x: center;
-    background-image: url('./logo.png');
+    /* background-image: url('../images/open-road.jpg'); */
+    background-position: center;
+    background-size: cover;
     z-index: 1;
     min-height: 25rem;
     min-width: 45rem;
     padding: 0 5rem;
-    background-color: hsla(0,0%,100%,0.75);
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
+    border-radius: 20px;
 }
 
 .button--close {
@@ -67,4 +71,8 @@ fieldset {
 .dialog {
     min-width: 15rem;
     min-height: 5rem;
+}
+
+.linkregister {
+    color: black;
 }

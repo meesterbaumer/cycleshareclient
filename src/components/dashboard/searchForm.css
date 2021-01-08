@@ -1,0 +1,12 @@
+.searchForm {
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    width: 30%;
+}

@@ -80,7 +80,7 @@ export const Register = (props) => {
                 </fieldset>
             </form>
             <section className="link--register">
-                Already registered? <Link to="/login">Login</Link>
+                Already registered? <Link className="linkregister" to="/login">Login</Link>
             </section>
         </main>
     )

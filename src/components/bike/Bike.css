@@ -1,8 +1,9 @@
 .individualBike {
     border: 2px solid black;
     border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    color: black;
     width: fit-content;
     margin: 20px;
     padding: 10px;
@@ -31,7 +32,7 @@
     flex-direction: column;
 }
 
-.searchForm {
+/* .searchForm {
     background-color: black;
     border-radius: 20px;
     display: flex;
@@ -40,8 +41,7 @@
     align-self: center;
     align-items: center;
     width: 30%;
-
-}
+} */
 
 .statePicker {
     width: 15rem;

@@ -62,12 +62,12 @@ export const BikeDetailsList = (props) => {
                         <div className="bike__image"><img className="bikeimage" src={bike.image}></img></div>
                     </div>
                 </div>
-                <div className="thirdThird">
+                {/* <div className="thirdThird">
                     <div>
                         <div>Check out what you're fellow riders think:</div>
                         <ReviewList />
                     </div>
-                </div>
+                </div> */}
                 <div className="fourthThird">
                     <button onClick={reserveBikeClicked}>
                         Reserve {bike.model}
