@@ -47,6 +47,7 @@ export const BikeDetailsList = (props) => {
     return (
         <>
             <div className="detailContainer">
+            <div className="closeButton"><button onClick={() => props.history.push("/bikes")}>X</button></div>
                 <div className="firstThird bikeHeading">{bike.year} {bike.model}</div>
                 <div className="secondThird">
                     <div className="bikeDeets">
