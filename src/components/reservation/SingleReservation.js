@@ -22,6 +22,8 @@ export const MyReservation = ({reservation}) => {
                 <div>{reservation.bike.rider.user.first_name}'s address:</div>
                 <div className="centered">{reservation.bike.rider.address}</div>
                 <div className="centered">{reservation.bike.rider.city}, {reservation.bike.rider.state.name}</div>
+                <div>{reservation.bike.rider.user.first_name}'s contact:</div>
+                <div className="centered">{reservation.bike.rider.user.email}</div>
                 <br></br>
                 <div>your method of payment is:</div>
                 <div className="centered">{reservation.payment.name}</div>
